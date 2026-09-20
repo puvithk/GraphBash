@@ -60,8 +60,8 @@ NodePilot is divided into three repositories.
 
 ### Related Repositories
 
-- [NodePilot Control Plane](https://github.com/puvithk/nodepilot-control-plane)
-- [NodePilot Linux Node Agent](https://github.com/puvithk/nodepilot-node-agent)
+- [Graphbash Control Plane](https://github.com/puvithk/nodepilot-control-plane)
+- [Graphbash Linux Node Agent](https://github.com/puvithk/nodepilot-node-agent)
 
 ## Architecture Diagram
 ![GraphBash Architecture](./docs/architecture/graphbash-architecture.svg)
