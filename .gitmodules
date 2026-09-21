@@ -1,0 +1,6 @@
+[submodule "graphBash-control-plane"]
+	path = graphBash-control-plane
+	url = https://github.com/puvithk/graphBash-control-plane.git
+[submodule "graphBash-node-agent"]
+	path = graphBash-node-agent
+	url = https://github.com/puvithk/graphBash-node-agent.git
