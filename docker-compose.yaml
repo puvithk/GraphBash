@@ -1,0 +1,76 @@
+services:
+
+  db:
+    image: mysql:8.0
+    container_name: node-pilot-db
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nodebash
+
+    ports:
+      - "3333:3306"
+
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+    networks:
+      - node-pilot-net
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+
+  redis:
+    image: redis:7-alpine
+    container_name: node-pilot-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - node-pilot-net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+
+  api:
+    build:
+      context: ./graphBash-control-plane
+      dockerfile: Dockerfile
+
+    container_name: node-pilot-api
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./graphBash-control-plane/app:/app/app
+      - ./graphBash-control-plane/tests:/app/tests
+
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      SECRET_KEY: ${SECRET_KEY}
+      ALGORITHM: ${ALGORITHM:-HS256}
+      GROQ_API_KEY: ${GROQ_API_KEY}
+      REDIS_URL: ${REDIS_URL}
+
+    networks:
+      - node-pilot-net
+
+    depends_on:
+      db:
+        condition: service_healthy
+  
+# Should add here control Lixu
+
+
+networks:
+  node-pilot-net:
+    driver: bridge
