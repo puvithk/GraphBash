@@ -1,4 +1,4 @@
-# NodePilot
+# GraphBash
 
 > Secure AI-powered cross-platform system administration using LangGraph, Model Context Protocol, and controlled Linux node agents.
 
@@ -10,11 +10,11 @@
 
 ## Project Overview
 
-NodePilot is a production-oriented AI system administration platform that allows users to monitor, troubleshoot, and safely operate Linux machines from a centralized control plane.
+GraphBash is a production-oriented AI system administration platform that allows users to monitor, troubleshoot, and safely operate Linux machines from a centralized control plane.
 
 The platform accepts natural-language requests, routes them through a LangGraph workflow, selects an approved MCP tool, evaluates security policies, requests human approval when necessary, executes the operation on a managed Linux node, and stores an auditable result.
 
-NodePilot is not an unrestricted AI shell. The AI selects an approved tool, while the security layer decides whether that operation is allowed.
+GraphBash is not an unrestricted AI shell. The AI selects an approved tool, while the security layer decides whether that operation is allowed.
 
 ## Project Problem
 
@@ -35,7 +35,7 @@ Directly connecting an LLM to a shell would also introduce serious risks, includ
 
 ## Proposed Solution
 
-NodePilot adds a secure orchestration layer between the user and managed Linux systems.
+GraphBash adds a secure orchestration layer between the user and managed Linux systems.
 
 The solution consists of:
 
@@ -50,18 +50,18 @@ The solution consists of:
 
 ## Repository Structure
 
-NodePilot is divided into three repositories.
+GraphBash is divided into three repositories.
 
 | Repository | Responsibility | Runtime |
 |---|---|---|
-| `NodePilot` | Project documentation, architecture, roadmap, security model, and release coordination | GitHub |
-| `nodepilot-control-plane` | LangGraph orchestration, APIs, MCP gateway, policies, approvals, node registry, and audit services | Windows or server |
-| `nodepilot-node-agent` | Controlled Linux, Docker, process, network, service, package, and filesystem operations | Ubuntu/Linux |
+| `GraphBash` | Project documentation, architecture, roadmap, security model, and release coordination | GitHub |
+| `graphBash-control-plane` | LangGraph orchestration, APIs, MCP gateway, policies, approvals, node registry, and audit services | Windows or server |
+| `graphBash-node-agent` | Controlled Linux, Docker, process, network, service, package, and filesystem operations | Ubuntu/Linux |
 
 ### Related Repositories
 
-- [Graphbash Control Plane](https://github.com/puvithk/nodepilot-control-plane)
-- [Graphbash Linux Node Agent](https://github.com/puvithk/nodepilot-node-agent)
+- [Graphbash Control Plane](https://github.com/puvithk/graphBash-control-plane)
+- [Graphbash Linux Node Agent](https://github.com/puvithk/graphBash-node-agent)
 
 ## Architecture Diagram
 ![GraphBash Architecture](./docs/architecture/graphbash-architecture.svg)
@@ -260,7 +260,7 @@ Before version `1.0.0`, at least three development posts will be published:
 
 ## Project Status Disclaimer
 
-NodePilot is currently an educational and portfolio project under development. Do not use it to administer production infrastructure until authentication, authorization, transport security, audit persistence, tests, and security reviews are complete.
+GraphBash is currently an educational and portfolio project under development. Do not use it to administer production infrastructure until authentication, authorization, transport security, audit persistence, tests, and security reviews are complete.
 
 ## License
 
